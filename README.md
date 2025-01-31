@@ -1,11 +1,4 @@
-# Aprendendo PHP
+# Atividades de programação PHP
 
-Repositório com exemplos e exercícios PHP
-
-## Recursos Trabalhados
-
-- sintaxe geral
-- Variáveis e Constantes
-- Arrays
-
+Repositório utilizado durante as aulas de programação PHP na UC7 do curso Técnico em informática para internet.
  
