@@ -37,6 +37,13 @@
 
     <hr>
 
+    <h2>Convertendo (fazendo um casting) objeto em array associativo</h2>
+
+    <?php $arrayUsuario = (array) $usuario; ?>
+
+    <h3>Analisando o array gerado a partir de um objeto</h3>
+    <pre><?= var_dump($arrayUsuario) ?></pre>
+
     
 
 </body>
