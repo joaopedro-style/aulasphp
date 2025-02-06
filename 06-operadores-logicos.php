@@ -13,73 +13,86 @@
 
     <h2>&& (E/AND)</h2>
     <p><i>Todas as condições precisam ser <b>VERDADEIRAS/TRUE</b><i>
-    <p>
+                <p>
 
-    <?php
-    /* Avaliar um aluno mediante média e faltas */
-    $media = 9.5;
-    $faltas = 10;
+                    <?php
+                    /* Avaliar um aluno mediante média e faltas */
+                    $media = 9.5;
+                    $faltas = 10;
 
-    if ($media >= 7 && $faltas <= 10) {
-        echo "<p>Aprovado!</p>";
-    } else {
-        echo "<p>Reprovado!</p>";
-    }
-    ?>
-        <hr>
+                    if ($media >= 7 && $faltas <= 10) {
+                    ?>
+                <p>Aprovado!</p>
+            <?php
+                    } else {
+            ?>
+                <p>Reprovado!</p>
+            <?php
+                    }
+            ?>
+            <hr>
 
-    <!-- osínbolo | é chamado de pipe -->
-    <h2>|| (Ou/OR)</h2>
-    <p><i>Basta que apenas uma condição seja <b>VERDADEIRA/TRUE</b><i></p>
- <?php
-/* Dar um desconto a um cliente que seja VIP ou que  tenha cupom */
-$clienteVIP = true; // valor/tipo lógico/boolean
-$temCupom = false;
+            <!-- osínbolo | é chamado de pipe -->
+            <h2>|| (Ou/OR)</h2>
+            <p><i>Basta que apenas uma condição seja <b>VERDADEIRA/TRUE</b><i></p>
+            <?php
+            /* Dar um desconto a um cliente que seja VIP ou que  tenha cupom */
+            $clienteVIP = true; // valor/tipo lógico/boolean
+            $temCupom = false;
 
-if ($clienteVIP || $temCupom) {
-    echo "<p>Desconto aplicado!</p>";
-} else {
-    echo "<p>Sem desconto!</p>";
-}
+            if ($clienteVIP || $temCupom) {
+            ?>
+                <p>Desconto aplicado!</p>
+            <?php
+            } else {
+            ?>
+                <p>Sem desconto!</p>
+            <?php
+            }
+            ?>
+            <hr>
 
-?>
+            <h2>! (NÃO/NOT)</h2>
+            <p><i>É uma inversão de lógica: VERDADEIRO vira <b>FALSO</b>, FALSO vira <b>VERDADEIRO</b></i></p>
+            <?php
+            /* Se o usuário NÃO ESTIVER logado, exibir o link/botão de LOGIN. Caso contrário, exibir uma saudação. */
+            $usuarioLogado = false;
 
-<hr>
+            if (!$usuarioLogado) {
+            ?>
+                <a herf="login.php">Login</a>
+            <?php
+            } else {
+            ?>
+                <span>Bem-vindo ao sistema!</span>
+            <?php
+            }
+            ?>
 
-    <h2>! (NÃO/NOT)</h2>
-    <p><i>É uma inversão de lógica: VERDADEIRO vira <b>FALSO</b>, FALSO vira <b>VERDADEIRO</b></i></p>
-<?php
-/* Se o usuário NÃO ESTIVER logado, exibir o link/botão de LOGIN. Caso contrário, exibir uma saudação. */
-$usuarioLogado = false;
+            <hr>
+            <h2>Usando os 3 operadores combinados para uma lógica mais elaborada</h2>
+            <?php
+            /* Para entrar numa festa é necessário atender os seguintes critérios:
 
-if (!$usuarioLogado) {
-    echo "<a herf=\"login.php\">Login</a>";
-} else {
-    echo "<span>Bem-vindo ao sistema!</span>";
-}
+            - Idade mínima de 18 anos
+            - Ou estar acompanhado dos pais 
+            - E não estar bêbado */
 
-?>
+            // Variáveis
+            $idade = 20;
+            $acompanhadoDosPais = true;
+            $estaBebado = true;
 
-<hr>
-<h2>Usando os 3 operadores combinados para uma lógica mais elaborada</h2>
-<?php
-/* Para entrar numa festa é necessário atender os seguintes critérios:
-
-- Idade mínima de 18 anos
-- Ou estar acompanhado dos pais 
-- E não estar bêbado */
-
-// Variáveis
-$idade = 20;
-$acompanhadoDosPais = true;
-$estaBebado = true;
-
-if ( ($idade >= 18 || $acompanhadoDosPais) && !$estaBebado ) {
-    echo "<p>Entrada permitida!</p>";
-} else {
-    echo "<p>Entrada negada!</p>";
-}
-?>
+            if (($idade >= 18 || $acompanhadoDosPais) && !$estaBebado) {
+            ?>
+                <p>Entrada permitida!</p>
+            <?php
+            } else {
+            ?>
+                <p>Entrada negada!</p>
+            <?php
+            }
+            ?>
 
 
 </body>
