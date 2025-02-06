@@ -60,6 +60,27 @@ if (!$usuarioLogado) {
 
 ?>
 
+<hr>
+<h2>Usando os 3 operadores combinados para uma lógica mais elaborada</h2>
+<?php
+/* Para entrar numa festa é necessário atender os seguintes critérios:
+
+- Idade mínima de 18 anos
+- Ou estar acompanhado dos pais 
+- E não estar bêbado */
+
+// Variáveis
+$idade = 20;
+$acompanhadoDosPais = true;
+$estaBebado = true;
+
+if ( ($idade >= 18 || $acompanhadoDosPais) && !$estaBebado ) {
+    echo "<p>Entrada permitida!</p>";
+} else {
+    echo "<p>Entrada negada!</p>";
+}
+?>
+
 
 </body>
 
