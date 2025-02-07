@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 04</title>
+    <style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid;
+            text-align: center;
+        }
+        th {
+            background-color: darkgray;
+        }
+    </style>
 </head>
 <body>
     <h1>Exercício 04 (Loop e Estrutura de dados)</h1>
@@ -18,17 +33,28 @@ $linguagens =[
     "SQL" => "Manipulação de banco de dados",
     "JAVA" => "Java é uma linguagem de programação e plataforma de computação"
 ];
-
-foreach ($linguagens as $linguagem => $descricao) {
 ?>
-    <table>
+<table>
         <tr>
-            <th></th>
+            <th>ID</th>
+            <th>Linguagem</th>
+            <th>Descrição</th>
         </tr>
-    </table>
-
 <?php
+$id = 1;
+
+foreach ($linguagens as $linguagem => $descricao ) {
+?>
+    <tr>
+    <td><?=$id?></td>
+    <td><?=$linguagem?></td>
+    <td><?=$descricao?></td>
+    </tr>
+<?php
+$id++;
 }
 ?>
+</table>
+
 </body>
 </html>
