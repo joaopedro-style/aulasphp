@@ -42,16 +42,14 @@ $linguagens =[
         </tr>
 <?php
 $id = 1;
-
 foreach ($linguagens as $linguagem => $descricao ) {
 ?>
     <tr>
-    <td><?=$id?></td>
+    <td><?=$id++?></td>
     <td><?=$linguagem?></td>
     <td><?=$descricao?></td>
     </tr>
 <?php
-$id++;
 }
 ?>
 </table>
