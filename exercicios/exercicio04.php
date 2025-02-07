@@ -6,7 +6,7 @@
     <title>Exercício 04</title>
     <style>
         table {
-            width: 60%;
+            width: 70%;
             margin: 20px auto;
             border-collapse: collapse;
         }
@@ -16,7 +16,7 @@
             text-align: center;
         }
         th {
-            background-color: darkgray;
+            background-color: darkgrey;
         }
     </style>
 </head>
