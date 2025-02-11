@@ -141,6 +141,16 @@
             <p><?=$formatarPreco(10500.2598)?></p>
             <p><?=$formatarPreco(-1098)?></p>
 
+            <hr>
+
+            <h2>Arrow Function (necessário usar fn)</h2>
+        <?php
+        // Útil para funções simples de uma única linha e com return implícito
+        $dobrarValor = fn(int $valor):int => $valor * 2;
+        ?>
+            <p><?=$dobrarValor(10)?></p>
+            <p><?=$dobrarValor(100)?></p>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
