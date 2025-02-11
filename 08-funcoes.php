@@ -22,7 +22,19 @@ function exibirDadosDoAutor(){
 }
 ?>
         <h3>Chamada do procedimento</h3>
-        <?=exibirDadosDoAutor()?>
+        <?php
+        $valor = 500;
+        if ($valor > 1000) {
+            exibirDadosDoAutor();
+        }
+        ?>
+
+        <h3>Outras chamadas</h3>
+        <div><?=exibirDadosDoAutor()?></div>
+        <ul>
+            <li><?=exibirDadosDoAutor()?></li>
+            <li><?=exibirDadosDoAutor()?></li>
+        </ul>
 
         <hr>
     </div>
