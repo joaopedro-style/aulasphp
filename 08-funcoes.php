@@ -146,6 +146,7 @@
             <h2>Arrow Function (necessário usar fn)</h2>
         <?php
         // Útil para funções simples de uma única linha e com return implícito
+        // Obs.: esta sintaxe só permite UMA ÚNICA operação (sem {}, sem return esplícito)
         $dobrarValor = fn(int $valor):int => $valor * 2;
         ?>
             <p><?=$dobrarValor(10)?></p>
