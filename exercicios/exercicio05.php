@@ -15,7 +15,7 @@
         <hr>
 
         <?php
-        $alunos = [
+        $listaDeAlunos = [
             [
                 "nome" => "Fulano 1",
                 "nota1" => 5,
@@ -54,17 +54,17 @@
         ?>
 
         <?php
-        foreach ($alunos as $aluno) {
+        foreach ($listaDeAlunos as $aluno) {
             $media = calcularMedia($aluno["nota1"], $aluno["nota2"], $aluno["nota3"]);
-            $situacao = situacaoDoAluno($media);
+            $situacao = verificarsituacao($media);
         ?>
             <ul class="list-group my-5">
                 <li class="list-group-item">Nome do aluno: <?= $aluno["nome"] ?> </li>
                 <li class="list-group-item">Nota 1: <?= $aluno["nota1"] ?></li>
                 <li class="list-group-item">Nota 2: <?= $aluno["nota2"] ?> </li>
                 <li class="list-group-item">Nota 3: <?= $aluno["nota3"] ?> </li>
-                <li class="list-group-item">Média: <?= number_format($media, 1, ",") ?></li>
-                <li class="list-group-item">Situação: <?= situacaoDoAluno($media) ?></li>
+                <li class="list-group-item">Média: <?= number_format($media, 2, ",") ?></li>
+                <li class="list-group-item">Situação: <span class="badge text-bg-<?= $media >= 7 ? 'success' : 'danger' ?>"><?= verificarsituacao($media) ?></span></li>
             </ul>
 
         <?php
@@ -76,36 +76,33 @@
         $nota2 = 10;
         $nota3 = 4.5;
 
-        $media = ($nota1 + $nota2 + $nota3) / 3
+        $media = calcularMedia($nota1, $nota2, $nota3);
+        $situacao = verificarsituacao($media);
         ?>
 
-        <p>A média é : <?= number_format($media, 1, ",") ?></p>
+        <p>A média é : <?= number_format($media, 2, ",") ?></p>
 
         <?php
         if ($media >= 7) { ?>
-            <p class="bg-primary">Aprovado!</p>
+            <p class="bg-success">Aprovado!</p>
         <?php } else { ?>
             <p class="bg-danger">Reprovado!</p>
         <?php } ?>
 
         <?php
-        function calcularMedia($nota1, $nota2, $nota3)
+        function calcularMedia(float $valornota1, float $valornota2, float $valornota3)
         {
-            return ($nota1 + $nota2 + $nota3) / 3;
+            $resultadoDaMedia = ($valornota1 + $valornota2 + $valornota3) / 3;
+            return $resultadoDaMedia;
         }
         ?>
 
-        <p>Média: <?= number_format($media, 1, ",") ?></p>
-        <p>Situação: <?= situacaoDoAluno($media) ?></p>
+        <p>Média: <?= number_format($media, 2, ",") ?></p>
+        <p class="badge text-bg-<?= $media >= 7 ? 'success' : 'danger' ?>">Situação: <?= verificarsituacao($media) ?></p>
 
         <?php
-        function situacaoDoAluno(float $media): string
+        function verificarsituacao(float $media): string
         {
-            if ($media >= 7) {
-                // return "Aprovado!";
-            } else {
-                // return "Reprovado!";
-            }
             return $media >= 7 ? "Aprovado!" : "Reprovado!";
         }
         ?>
