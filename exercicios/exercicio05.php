@@ -15,14 +15,71 @@
         <hr>
 
         <?php
+        $alunos = [
+            [
+                "nome" => "Fulano 1",
+                "nota1" => 5,
+                "nota2" => 7,
+                "nota3" => 8
+            ],
+
+            [
+                "nome" => "Fulano 2",
+                "nota1" => 9,
+                "nota2" => 10,
+                "nota3" => 6
+            ],
+
+            [
+                "nome" => "Fulano 3",
+                "nota1" => 0,
+                "nota2" => 9,
+                "nota3" => 4
+            ],
+
+            [
+                "nome" => "Fulano 4",
+                "nota1" => 2,
+                "nota2" => 10,
+                "nota3" => 8
+            ],
+
+            [
+                "nome" => "Fulano 5",
+                "nota1" => 10,
+                "nota2" => 7,
+                "nota3" => 9
+            ]
+        ];
+        ?>
+
+        <?php
+        foreach ($alunos as $aluno) {
+            $media = calcularMedia($aluno["nota1"], $aluno["nota2"], $aluno["nota3"]);
+            $situacao = situacaoDoAluno($media);
+        ?>
+            <ul class="list-group my-5">
+                <li class="list-group-item">Nome do aluno: <?= $aluno["nome"] ?> </li>
+                <li class="list-group-item">Nota 1: <?= $aluno["nota1"] ?></li>
+                <li class="list-group-item">Nota 2: <?= $aluno["nota2"] ?> </li>
+                <li class="list-group-item">Nota 3: <?= $aluno["nota3"] ?> </li>
+                <li class="list-group-item">Média: <?= number_format($media, 1, ",") ?></li>
+                <li class="list-group-item">Situação: <?= situacaoDoAluno($media) ?></li>
+            </ul>
+
+        <?php
+        }
+        ?>
+
+        <?php
         $nota1 = 7;
         $nota2 = 10;
-        $nota3 = 4;
+        $nota3 = 4.5;
 
         $media = ($nota1 + $nota2 + $nota3) / 3
         ?>
 
-        <p>A média é : <?= $media ?></p>
+        <p>A média é : <?= number_format($media, 1, ",") ?></p>
 
         <?php
         if ($media >= 7) { ?>
@@ -38,17 +95,18 @@
         }
         ?>
 
-        <p>Média: <?= $media ?></p>
-        <p> Situação: <?= situacaoDoAluno($media) ?></p>
+        <p>Média: <?= number_format($media, 1, ",") ?></p>
+        <p>Situação: <?= situacaoDoAluno($media) ?></p>
 
         <?php
         function situacaoDoAluno(float $media): string
         {
             if ($media >= 7) {
-                return "Aprovado!";
+                // return "Aprovado!";
             } else {
-                return "Reprovado!";
+                // return "Reprovado!";
             }
+            return $media >= 7 ? "Aprovado!" : "Reprovado!";
         }
         ?>
     </div>
