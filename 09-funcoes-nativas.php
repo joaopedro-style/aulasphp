@@ -79,6 +79,16 @@
             <li>Idade: <?=$idade?> anos.</li>
         </ul>
 
+        <hr>
+
+        <h3><code>array_sum()</code></h3>
+        <p>Somar valores de um array numérico</p>
+    <?php
+    $valores = [10, 20, 50, 1000, 500];
+    $total = array_sum($valores);
+    ?>
+        <p>Soma dos valores do array: <b><?=$total?></b></p>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
