@@ -59,7 +59,26 @@
     ?>
     <pre><?=var_dump($arrayBandas)?></pre>
     <pre><?=var_dump($textoBandas)?></pre>
-    
+
+        <hr>
+
+        <h3><code>extract()</code></h3>
+        <p>Extrai chaves associativas para variáveis</p>
+    <?php
+    $aluno = [
+        "id" => 1,
+        "nome" => "Chapolin colorado",
+        "idade" => 25
+    ];
+
+    extract($aluno);
+    ?>
+        <ul>
+            <li>ID: <?=$id?></li>
+            <li>Nome: <?=$nome?></li>
+            <li>Idade: <?=$idade?> anos.</li>
+        </ul>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
