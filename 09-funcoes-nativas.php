@@ -14,6 +14,7 @@
 
         <h2>Strings</h2>
         <h3><code>trim</code></h3>
+        <p>Remove espaços antes e depois de strings</p>
     <?php
     $texto = " Paulo Henrique está me devendo paçocas    ";
     $textoSemEspaco = trim($texto);
@@ -22,6 +23,7 @@
     <pre><?=var_dump($textoSemEspaco)?></pre>
             <hr>
 
+            <h3><code>str_replace()</code></h3>
             
     </div>
 
