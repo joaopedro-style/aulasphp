@@ -72,8 +72,8 @@
             "nome" => "Chapolin colorado",
             "idade" => 25
         ];
-
-        extract($aluno);
+        $nome = "teste";
+        extract($aluno, EXTR_PREFIX_SAME, "chave");
         ?>
         <ul>
             <li>ID: <?= $id ?></li>
