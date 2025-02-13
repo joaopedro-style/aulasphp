@@ -112,21 +112,32 @@
         ?>
         <p>Menor valor: <?= min($valores) ?></p>
         <p>Maior valor: <?= max($valores) ?></p>
-        <p>Arredondamento: <?=round($valorQualquer)?></p>
+        <p>Arredondamento: <?= round($valorQualquer) ?></p>
 
         <h2>Filtros</h2>
         <p>Recursos/Funções/Constantes de análise e limpeza de dados aplicados através das funções <code>filter_var()</code> e <code>filter_input()</code></p>
 
         <h3>Validação</h3>
-<?php
-// Exemplo de email estruturado erroneamente
-$emailErrado = "tiago@.com.br";
-$emailCorreto = "tiago@provedor.com.br";
-?>
-        <p><?=var_dump( filter_var($emailErrado, FILTER_VALIDATE_EMAIL) )?></p>
-        <p><?=var_dump( filter_var($emailCorreto, FILTER_VALIDATE_EMAIL) )?></p>
+        <?php
+        // Exemplo de email estruturado erroneamente
+        $emailErrado = "tiago@.com.br";
+        $emailCorreto = "tiago@provedor.com.br";
+        ?>
+        <p><?= var_dump(filter_var($emailErrado, FILTER_VALIDATE_EMAIL)) ?></p>
+        <p><?= var_dump(filter_var($emailCorreto, FILTER_VALIDATE_EMAIL)) ?></p>
+
+        <hr>
 
         <h3>Sanitização</h3>
+        <?php
+        $ataqueDeRaqui = "<script>
+            document.body.innerHTML = '<h1 style=background:yellow><marquee loop>Sou ráqui 🤬🤬🤬🤬!</marquee></h1>
+        </script>";
+
+        //echo $ataqueDeRaqui;
+        $ataqueSanitizado = filter_var($ataqueDeRaqui, FILTER_SANITIZE_SPECIAL_CHARS);
+        echo $ataqueSanitizado;
+        ?>
 
 
 
