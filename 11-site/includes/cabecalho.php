@@ -25,7 +25,7 @@ switch ($pagina) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?= $titulo ?> - Site com PHP</title>
+    <title> <?=$titulo?> - Site com PHP</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -36,12 +36,12 @@ switch ($pagina) {
             <h1>Site com PHP</h1>
 
             <nav class="nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Treinamentos</a>
-                <a class="nav-link" href="#">Dúvidas</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                <a class="nav-link" href="cursos.php">Treinamentos</a>
+                <a class="nav-link" href="duvidas.php">Dúvidas</a>
+                <a class="nav-link" href="contato.php">Contato</a>
                 <a class="nav-link disabled" aria-disabled="true"></a>
             </nav>
-
         </header>
 
         <main>
