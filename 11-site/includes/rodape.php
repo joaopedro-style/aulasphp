@@ -1,6 +1,11 @@
 </main>
+<?php
+date_default_timezone_set("America/sao_paulo");
+$dataHora = date("d/m/Y H:i")
+?>
 <footer>
     <p>Site criado para o curso Téc. Informática para internet</p>
+    <p><time><?= $dataHora ?></time></p>
 </footer>
 </div>
 
