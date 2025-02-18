@@ -14,50 +14,57 @@
         <h1>Processamento usando POST</h1>
         <hr>
         <?php
-        // Capturando os dados transmitidos
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $idade = $_POST["idade"];
-        $mensagem = $_POST["mensagem"];
+        if (empty($_POST["nome"]) || empty($_POST["email"])) { ?>
+            <p class="alert alert-danger">Porfavor preencha os campos <b>nome</b> e <b>e-mail</b>.</p>
+        <?php } else {
 
-        // Capturando os options
+            // Capturando os dados transmitidos
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $idade = $_POST["idade"];
+            $mensagem = $_POST["mensagem"];
 
-        // Solução 1: aplicar um if/else ternário checando se existe (isset) algum interesse
-        //$interesses = isset($_POST["interesses"]) ? $_POST["interesses"] : [];
+            // Capturando os options
 
-        // Solução 2: usando o operador de coalescência nula ??
-        /* Se houver interesses, os armazene. Caso contrário, guarde array vazio. */
-        $interesses = $_POST["interesses"] ?? [];
+            // Solução 1: aplicar um if/else ternário checando se existe (isset) algum interesse
+            //$interesses = isset($_POST["interesses"]) ? $_POST["interesses"] : [];
 
-        // Capturando o radio
-        $informativos = $_POST["informativos"];
+            // Solução 2: usando o operador de coalescência nula ??
+            /* Se houver interesses, os armazene. Caso contrário, guarde array vazio. */
+            $interesses = $_POST["interesses"] ?? [];
+
+            // Capturando o radio
+            $informativos = $_POST["informativos"] ?? [];
         ?>
-        <!-- Exibindo -->
-        <h2>Dados:</h2>
-        <ul>
-            <li>Nome: <?= $nome ?></li>
-            <li>E-mail: <?= $email ?></li>
-            <li>Idade: <?= $idade ?> anos</li>
-            <li>Receber informativos: <?= $informativos ?></li>
-
-            <!-- Usamos o empty com inversão de lógica (operador ! de negação).
+            <!-- Exibindo -->
+            <h2>Dados:</h2>
+            <ul>
+                <li>Nome: <?= $nome ?></li>
+                <li>E-mail: <?= $email ?></li>
+                <li>Idade: <?= $idade ?> anos</li>
+                <?php if (!empty($informativos)) { ?>
+                    <li>Receber informativos: <?= $informativos ?></li>
+                <?php } ?>
+                <!-- Usamos o empty com inversão de lógica (operador ! de negação).
              Portanto, se NÃO ESTÁ vazio, mostre os interesses. -->
-            <?php if (!empty($interesses)) { ?>
-                <li>Interesses - usando <code>implode()</code>:
-                    <?= implode(", ", $interesses) ?>
-                </li>
 
-                <li>Interesses - usando <code>foreach()</code>:
-                    <ul>
-                        <?php foreach ($interesses as $interesse) { ?>
-                            <li><?= $interesse ?></li>
-                        <?php } ?>
-                    </ul>
-                </li>
-            <?php } ?>
+                <?php if (!empty($interesses)) { ?>
+                    <li>Interesses - usando <code>implode()</code>:
+                        <?= implode(", ", $interesses) ?>
+                    </li>
 
-            <li>Mensagem: <?= $mensagem ?></li>
-        </ul>
+                    <li>Interesses - usando <code>foreach()</code>:
+                        <ul>
+                            <?php foreach ($interesses as $interesse) { ?>
+                                <li><?= $interesse ?></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                <?php } ?>
+
+                <li>Mensagem: <?= $mensagem ?></li>
+            </ul>
+        <?php } ?>
 
     </div>
 
