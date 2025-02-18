@@ -36,16 +36,21 @@
             <li>E-mail: <?= $email ?></li>
             <li>Idade: <?= $idade ?> anos</li>
 
-            <li>Interesses - usando <code>implode()</code>:
-                <?= implode(", ", $interesses) ?>
-            </li>
+            <!-- Usamos o empty com inversão de lógica (operador ! de negação).
+             Portanto, se NÃO ESTÁ vazio, mostre os interesses. -->
+            <?php if (!empty($interesses)) { ?>
+                <li>Interesses - usando <code>implode()</code>:
+                    <?= implode(", ", $interesses) ?>
+                </li>
 
-            <li>Interesses - usando <code>foreach()</code>:
-                <ul>
-                    <?php foreach ($interesses as $interesse) { ?>
-                        <li><?= $interesse ?></li>
-                    <?php } ?>
-                </ul>
+                <li>Interesses - usando <code>foreach()</code>:
+                    <ul>
+                        <?php foreach ($interesses as $interesse) { ?>
+                            <li><?= $interesse ?></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+            <?php } ?>
 
             <li>Mensagem: <?= $mensagem ?></li>
         </ul>
